@@ -1,0 +1,13 @@
+CREATE DATABASE cadastroAluno;
+create table aluno (
+   RA int NOT NULL,
+   nome varchar(60),
+   nomePai varchar(60),
+   nomeMae varchar(60),
+   sexo varchar(9),
+   CPF varchar(11),
+   RG varchar(9),
+   endereco varchar(60),
+   numeroEndereco int (7),
+   PRIMARY KEY (RA)
+);
