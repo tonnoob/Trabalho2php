@@ -1,6 +1,6 @@
 CREATE DATABASE cadastroAluno;
 create table aluno (
-   RA int NOT NULL,
+   RA int AUTO_INCREMENT ,
    nome varchar(60),
    nomePai varchar(60),
    nomeMae varchar(60),
@@ -11,3 +11,12 @@ create table aluno (
    numeroEndereco int (7),
    PRIMARY KEY (RA)
 );
+
+create table tbUsuario(
+	idUsuario int PRIMARY key AUTO_INCREMENT,
+    usuario varchar(40),
+    senha varchar(40)
+);
+
+insert into tbUsuario values (null, 'admin','admin');
+insert into tbUsuario values (null, 'maria','1234');
