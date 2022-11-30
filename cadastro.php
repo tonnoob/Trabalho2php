@@ -1,5 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
 <h1>Cadastrar Aluno</h1>
-<section action="verificar-aluno.php" method="post">
+
+<section action="verificarCadastro.php" method="post">
     <form>
         <div>
             <input type="text" placeholder="Nome do aluno" name="txNome"/>
@@ -18,7 +29,7 @@
         </div>
 
         <div>
-            <input type="text" placeholder="CPF" name="txCpf"/>
+            <input type="number" placeholder="CPF" name="txCpf"/>
         </div>
 
         <div>
@@ -34,7 +45,7 @@
         </div>
         
         <div>
-            <input type="text" placeholder="Data de Nascimento" name="txDataNasc"/>
+            <input type="number" placeholder="Data de Nascimento" name="txDataNasc"/>
         </div>
         
     </form>
@@ -48,71 +59,14 @@
         </div>
 
         <div>
-            <input type="text" placeholder="Complemento" name="txComplemento"/>
-        </div>    
-
-        <div>
-            <input type="text" placeholder="Bairro" name="txBairro"/>
-        </div>
-
-        <div>
             <input type="text" placeholder="CEP" name="txCep"/>
         </div>
 
-        <div>
-            <input type="text" placeholder="Cidade - UF" name="txCidade"/>
-        
-        </div>
         <div>
             <input type="submit" value="Cadastrar" />
         </div>
     </form>
 </section>
+</body>
 
-<?php
-$nomeAluno = $_POST['txNome'];
-$nomePai = $_POST['txNomePai'];
-$nomeMae = $_POST['txNomeMae'];
-$sexo = $_POST['txSexo'];  
-$cpf = $_POST['txCpf'];
-$rg = $_POST['txRg'];
-$cidadeNasc = $_POST['txCidadeNasc'];
-$paisNasc = $_POST['txPaisNasc'];   
-$dataNasc = $_POST['txDataNasc'];
-
-$endereco = $_POST['txEndereco'];
-$complemento = $_POST['txComplemento'];
-$bairro = $_POST['txBairro']; 
-$cep = $_POST['txCep'];
-$cidade = $_POST['txCidade'];      
-
-echo "$nomeAluno";
-echo "$nomePai";
-echo "$nomeMae";
-echo "$sexo";
-echo "$cpf";
-echo "$rg";
-echo "$cidadeNasc";
-echo "$paisNasc";
-echo "$dataNasc";
-
-echo "$endereco";
-echo "$complemento";
-echo "$bairro";
-echo "$cep";
-echo "$cidade";
-
-include("conexao.php");
-
-try{
-    $stmt = $pdo->prepare("insert into aluno values(null, '$nomeAluno', '$nomePai', '$nomeMae', '$sexo', 
-    '$cpf', '$rg', '$cidadeNasc', '$paisNasc', '$dataNasc', '$endereco', '$complemento', '$bairro, 
-    '$cep', '$cidade')");
-    $stmt ->execute();
-}
-
-catch(PDOException $e){
-    echo "Erro: " . $e->getMessage();
-}
-
-?>
+</html>
